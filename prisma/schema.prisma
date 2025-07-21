@@ -1,0 +1,168 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// 用户表
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String?
+  phone     String?
+  address   String?
+  role      UserRole @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // 关联关系
+  requests Request[]
+  orders   Order[]
+
+  @@map("users")
+}
+
+// 用户角色枚举
+enum UserRole {
+  USER
+  ADMIN
+}
+
+// 商品需求表
+model Request {
+  id          String      @id @default(cuid())
+  userId      String
+  title       String
+  description String      @db.Text
+  productUrl  String?
+  images      String?     @db.Text // JSON格式存储图片路径数组
+  status      RequestStatus @default(PENDING)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  // 关联关系
+  user   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  quotes Quote[]
+  orders Order[]
+
+  @@map("requests")
+}
+
+// 需求状态枚举
+enum RequestStatus {
+  PENDING     // 待处理
+  PROCESSING  // 处理中
+  QUOTED      // 已报价
+  ACCEPTED    // 已接受
+  REJECTED    // 已拒绝
+  COMPLETED   // 已完成
+}
+
+// 报价表
+model Quote {
+  id          String      @id @default(cuid())
+  requestId   String
+  productName String
+  productUrl  String?
+  price       Decimal     @db.Decimal(10, 2)
+  serviceFee  Decimal     @db.Decimal(10, 2)
+  shippingFee Decimal     @db.Decimal(10, 2)
+  totalAmount Decimal     @db.Decimal(10, 2)
+  description String?     @db.Text
+  validUntil  DateTime
+  status      QuoteStatus @default(PENDING)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  // 关联关系
+  request Request @relation(fields: [requestId], references: [id], onDelete: Cascade)
+  orders  Order[]
+
+  @@map("quotes")
+}
+
+// 报价状态枚举
+enum QuoteStatus {
+  PENDING   // 待确认
+  ACCEPTED  // 已接受
+  REJECTED  // 已拒绝
+  EXPIRED   // 已过期
+}
+
+// 订单表
+model Order {
+  id            String      @id @default(cuid())
+  userId        String
+  requestId     String
+  quoteId       String
+  orderNumber   String      @unique
+  totalAmount   Decimal     @db.Decimal(10, 2)
+  paymentStatus PaymentStatus @default(PENDING)
+  orderStatus   OrderStatus @default(PENDING)
+  paymentId     String?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  // 关联关系
+  user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  request  Request   @relation(fields: [requestId], references: [id], onDelete: Cascade)
+  quote    Quote     @relation(fields: [quoteId], references: [id], onDelete: Cascade)
+  shipping Shipping?
+
+  @@map("orders")
+}
+
+// 支付状态枚举
+enum PaymentStatus {
+  PENDING   // 待支付
+  PAID      // 已支付
+  FAILED    // 支付失败
+  REFUNDED  // 已退款
+}
+
+// 订单状态枚举
+enum OrderStatus {
+  PENDING     // 待处理
+  PAID        // 已支付
+  PURCHASING  // 采购中
+  PURCHASED   // 已采购
+  SHIPPING    // 发货中
+  DELIVERED   // 已送达
+  COMPLETED   // 已完成
+  CANCELLED   // 已取消
+}
+
+// 物流表
+model Shipping {
+  id            String        @id @default(cuid())
+  orderId       String        @unique
+  trackingNumber String?
+  carrier       String?
+  status        ShippingStatus @default(PREPARING)
+  shippedAt     DateTime?
+  deliveredAt   DateTime?
+  notes         String?       @db.Text
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  // 关联关系
+  order Order @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  @@map("shipping")
+}
+
+// 物流状态枚举
+enum ShippingStatus {
+  PREPARING   // 准备中
+  SHIPPED     // 已发货
+  IN_TRANSIT  // 运输中
+  DELIVERED   // 已送达
+  EXCEPTION   // 异常
+}
