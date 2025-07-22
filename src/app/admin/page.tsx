@@ -3,6 +3,9 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { useAuth } from '@/contexts/AuthContext'
+import { storage } from '@/utils'
+import { StartProcessingModal } from '@/components/StartProcessingModal'
 import { 
   ClockIcon, 
   EyeIcon, 
@@ -32,7 +35,7 @@ interface Request {
 interface Quote {
   id: string
   productName: string
-  totalAmount: number
+  totalPrice: number
   status: string
   createdAt: string
 }
@@ -52,51 +55,40 @@ interface Order {
 
 export default function AdminPage() {
   const router = useRouter()
-  const [user, setUser] = useState<any>(null)
+  const { user, isLoading, logout } = useAuth()
   const [requests, setRequests] = useState<Request[]>([])
   const [orders, setOrders] = useState<Order[]>([])
   const [loading, setLoading] = useState(true)
   const [activeTab, setActiveTab] = useState('requests')
   const [statusFilter, setStatusFilter] = useState('ALL')
+  const [showProcessingModal, setShowProcessingModal] = useState(false)
+  const [selectedRequestId, setSelectedRequestId] = useState('')
+  const [selectedRequestTitle, setSelectedRequestTitle] = useState('')
+  const [availableAdmins, setAvailableAdmins] = useState<Array<{ id: string; name: string }>>([])
 
   useEffect(() => {
     checkAuth()
     fetchData()
-  }, [])
+    fetchAdmins()
+  }, [user, isLoading])
 
   const checkAuth = async () => {
-    const token = localStorage.getItem('token')
-    if (!token) {
+    if (isLoading) return
+    
+    if (!user) {
       router.push('/auth/login')
       return
     }
     
-    try {
-      const response = await fetch('/api/user/profile', {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-        },
-      })
-      
-      if (response.ok) {
-        const userData = await response.json()
-        if (userData.role !== 'ADMIN') {
-          router.push('/dashboard')
-          return
-        }
-        setUser(userData)
-      } else {
-        router.push('/auth/login')
-      }
-    } catch (error) {
-      console.error('认证失败:', error)
-      router.push('/auth/login')
+    if (user.role !== 'ADMIN') {
+      router.push('/dashboard')
+      return
     }
   }
 
   const fetchData = async () => {
     try {
-      const token = localStorage.getItem('token')
+      const token = storage.get('token')
       if (!token) return
 
       // 获取所有需求
@@ -107,7 +99,9 @@ export default function AdminPage() {
       })
       if (requestsResponse.ok) {
         const requestsData = await requestsResponse.json()
-        setRequests(requestsData)
+        setRequests(requestsData.requests || [])
+      } else {
+        setRequests([])
       }
 
       // 获取所有订单
@@ -118,32 +112,88 @@ export default function AdminPage() {
       })
       if (ordersResponse.ok) {
         const ordersData = await ordersResponse.json()
-        setOrders(ordersData)
+        setOrders(Array.isArray(ordersData) ? ordersData : [])
+      } else {
+        setOrders([])
       }
     } catch (error) {
       console.error('获取数据失败:', error)
       toast.error('获取数据失败')
+      setRequests([])
+      setOrders([])
     } finally {
       setLoading(false)
     }
   }
 
+  const fetchAdmins = async () => {
+    try {
+      const token = storage.get('token')
+      if (!token) return
+
+      const response = await fetch('/api/admin/users?role=ADMIN', {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      })
+      if (response.ok) {
+        const adminsData = await response.json()
+        setAvailableAdmins(adminsData)
+      }
+    } catch (error) {
+      console.error('获取管理员列表失败:', error)
+    }
+  }
+
   const handleLogout = () => {
-    localStorage.removeItem('token')
-    router.push('/')
+    logout()
     toast.success('已退出登录')
+  }
+
+  const handleStartProcessing = (requestId: string, requestTitle: string) => {
+    setSelectedRequestId(requestId)
+    setSelectedRequestTitle(requestTitle)
+    setShowProcessingModal(true)
+  }
+
+  const handleStartProcessingSubmit = async (data: any) => {
+    try {
+      const token = storage.get('token')
+      const response = await fetch('/api/admin/requests', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          requestId: selectedRequestId,
+          ...data,
+        }),
+      })
+
+      if (response.ok) {
+        toast.success('已开始处理请求')
+        fetchData() // 重新获取数据
+      } else {
+        const error = await response.json()
+        throw new Error(error.message || '开始处理失败')
+      }
+    } catch (error) {
+      console.error('开始处理失败:', error)
+      throw error // 重新抛出错误让模态框处理
+    }
   }
 
   const updateRequestStatus = async (requestId: string, status: string) => {
     try {
-      const token = localStorage.getItem('token')
-      const response = await fetch(`/api/admin/requests/${requestId}/status`, {
+      const token = storage.get('token')
+      const response = await fetch(`/api/admin/requests`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
         },
-        body: JSON.stringify({ status }),
+        body: JSON.stringify({ requestId, status }),
       })
 
       if (response.ok) {
@@ -173,11 +223,22 @@ export default function AdminPage() {
     return statusMap[status] || { text: status, className: 'badge badge-info' }
   }
 
+  const parseImages = (images: string | string[]): string[] => {
+    if (!images) return []
+    if (Array.isArray(images)) return images
+    try {
+      const parsed = JSON.parse(images)
+      return Array.isArray(parsed) ? parsed : []
+    } catch {
+      return []
+    }
+  }
+
   const filteredRequests = statusFilter === 'ALL' 
     ? requests 
     : requests.filter(request => request.status === statusFilter)
 
-  if (loading) {
+  if (isLoading || loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
@@ -342,26 +403,41 @@ export default function AdminPage() {
                         <div className="text-sm text-gray-500">
                           <p>用户: {request.user.name} ({request.user.email})</p>
                           <p>提交时间: {new Date(request.createdAt).toLocaleString()}</p>
+                          {request.assignedTo && (
+                            <p>负责人: {request.assignedTo.name}</p>
+                          )}
+                          {request.priority && request.priority !== 'NORMAL' && (
+                            <span className={`inline-block mt-1 px-2 py-1 rounded text-xs font-medium ${
+                              request.priority === 'HIGH' 
+                                ? 'bg-red-100 text-red-800' 
+                                : 'bg-blue-100 text-blue-800'
+                            }`}>
+                              {request.priority === 'HIGH' ? '高优先级' : '低优先级'}
+                            </span>
+                          )}
                         </div>
                       </div>
                     </div>
                     
                     {/* 图片预览 */}
-                    {request.images && request.images.length > 0 && (
-                      <div className="mb-4">
-                        <p className="text-sm font-medium text-gray-700 mb-2">用户上传的图片:</p>
-                        <div className="flex space-x-2">
-                          {request.images.map((image, index) => (
-                            <img
-                              key={index}
-                              src={image}
-                              alt={`商品图片 ${index + 1}`}
-                              className="w-16 h-16 object-cover rounded border border-gray-200"
-                            />
-                          ))}
+                    {(() => {
+                      const images = parseImages(request.images)
+                      return images.length > 0 && (
+                        <div className="mb-4">
+                          <p className="text-sm font-medium text-gray-700 mb-2">用户上传的图片:</p>
+                          <div className="flex space-x-2">
+                            {images.map((image, index) => (
+                              <img
+                                key={index}
+                                src={image}
+                                alt={`商品图片 ${index + 1}`}
+                                className="w-16 h-16 object-cover rounded border border-gray-200"
+                              />
+                            ))}
+                          </div>
                         </div>
-                      </div>
-                    )}
+                      )
+                    })()}
                     
                     {/* 报价信息 */}
                     {request.quotes.length > 0 && (
@@ -377,7 +453,7 @@ export default function AdminPage() {
                             </div>
                             <div className="text-right">
                               <span className="text-lg font-semibold text-primary-600">
-                                ¥{quote.totalAmount}
+                                ¥{quote.totalPrice}
                               </span>
                               <span className={`ml-2 ${getStatusBadge(quote.status).className}`}>
                                 {getStatusBadge(quote.status).text}
@@ -393,7 +469,7 @@ export default function AdminPage() {
                       {request.status === 'PENDING' && (
                         <>
                           <button
-                            onClick={() => updateRequestStatus(request.id, 'PROCESSING')}
+                            onClick={() => handleStartProcessing(request.id, request.title)}
                             className="btn btn-primary btn-sm"
                           >
                             开始处理
@@ -477,6 +553,21 @@ export default function AdminPage() {
           </div>
         )}
       </div>
+
+      {/* 开始处理模态框 */}
+      <StartProcessingModal
+        isOpen={showProcessingModal}
+        onClose={() => {
+          setShowProcessingModal(false)
+          setSelectedRequestId('')
+          setSelectedRequestTitle('')
+        }}
+        onStartProcessing={handleStartProcessingSubmit}
+        requestId={selectedRequestId}
+        requestTitle={selectedRequestTitle}
+        currentUserId={user?.id || ''}
+        availableAdmins={availableAdmins}
+      />
     </div>
   )
 }

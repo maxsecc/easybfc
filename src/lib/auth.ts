@@ -31,7 +31,7 @@ export async function verifyToken(request: NextRequest): Promise<JWTPayload | nu
       return null
     }
 
-    const token = authHeader.substring(7) // 移除 'Bearer ' 前缀
+    const token = authHeader.substring(7)
     const jwtSecret = process.env.JWT_SECRET
     
     if (!jwtSecret) {

@@ -10,6 +10,7 @@ const prisma = new PrismaClient()
 
 // 请求提交验证模式
 const requestSchema = z.object({
+  title: z.string().min(5, '标题至少需要5个字符').max(100, '标题不能超过100个字符'),
   productUrl: z.string().url('请输入有效的商品链接').optional().or(z.literal('')),
   description: z.string().min(10, '商品描述至少需要10个字符').max(2000, '商品描述不能超过2000个字符'),
   images: z.array(z.string()).max(5, '最多只能上传5张图片').optional(),
@@ -66,12 +67,14 @@ export async function POST(request: NextRequest) {
     }
 
     const formData = await request.formData()
+    const title = formData.get('title') as string
     const productUrl = formData.get('productUrl') as string
     const description = formData.get('description') as string
     const images = formData.getAll('images') as File[]
 
     // 验证基本数据
     const validatedData = requestSchema.parse({
+      title,
       productUrl: productUrl || '',
       description,
       images: [], // 图片单独处理
@@ -127,9 +130,10 @@ export async function POST(request: NextRequest) {
     const newRequest = await prisma.request.create({
       data: {
         userId: user.id,
+        title: validatedData.title,
         productUrl: validatedData.productUrl || null,
         description: validatedData.description,
-        images: imageUrls,
+        images: JSON.stringify(imageUrls),
         status: 'PENDING',
       },
       include: {

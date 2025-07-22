@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
@@ -18,82 +18,69 @@ model User {
   name      String?
   phone     String?
   address   String?
-  role      UserRole @default(USER)
+  role      String @default("USER")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   // 关联关系
-  requests Request[]
-  orders   Order[]
+  requests         Request[]
+  assignedRequests Request[] @relation("AssignedRequests")
+  orders           Order[]
+  activities       RequestActivity[]
+  shipments        Shipment[]
+  shippingOrders   ShippingOrder[]
 
   @@map("users")
 }
 
-// 用户角色枚举
-enum UserRole {
-  USER
-  ADMIN
-}
-
 // 商品需求表
 model Request {
-  id          String      @id @default(cuid())
-  userId      String
-  title       String
-  description String      @db.Text
-  productUrl  String?
-  images      String?     @db.Text // JSON格式存储图片路径数组
-  status      RequestStatus @default(PENDING)
-  createdAt   DateTime    @default(now())
-  updatedAt   DateTime    @updatedAt
+  id              String      @id @default(cuid())
+  userId          String
+  title           String
+  description     String
+  productUrl      String?
+  images          String? // JSON格式存储图片路径数组
+  status          String @default("PENDING")
+  priority        String @default("NORMAL") // HIGH, NORMAL, LOW
+  assignedToId    String? // 分配给的管理员ID
+  processingNotes String? // 处理备注
+  estimatedDate   DateTime? // 预估完成时间
+  processedAt     DateTime? // 开始处理时间
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
 
   // 关联关系
-  user   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
-  quotes Quote[]
-  orders Order[]
+  user       User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  assignedTo User?   @relation("AssignedRequests", fields: [assignedToId], references: [id])
+  quotes     Quote[]
+  orders     Order[]
+  activities RequestActivity[]
 
   @@map("requests")
 }
 
-// 需求状态枚举
-enum RequestStatus {
-  PENDING     // 待处理
-  PROCESSING  // 处理中
-  QUOTED      // 已报价
-  ACCEPTED    // 已接受
-  REJECTED    // 已拒绝
-  COMPLETED   // 已完成
-}
-
 // 报价表
 model Quote {
-  id          String      @id @default(cuid())
-  requestId   String
-  productName String
-  productUrl  String?
-  price       Decimal     @db.Decimal(10, 2)
-  serviceFee  Decimal     @db.Decimal(10, 2)
-  shippingFee Decimal     @db.Decimal(10, 2)
-  totalAmount Decimal     @db.Decimal(10, 2)
-  description String?     @db.Text
-  validUntil  DateTime
-  status      QuoteStatus @default(PENDING)
-  createdAt   DateTime    @default(now())
-  updatedAt   DateTime    @updatedAt
+  id           String      @id @default(cuid())
+  requestId    String
+  productName  String
+  productPrice Float
+  quantity     Int         @default(1)
+  serviceFee   Float
+  totalPrice   Float       // 只包含商品价格和服务费，不含运费
+  notes        String?
+  validUntil   DateTime
+  status       String @default("PENDING")
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
 
   // 关联关系
   request Request @relation(fields: [requestId], references: [id], onDelete: Cascade)
   orders  Order[]
+  shipmentItems ShipmentItem[]
 
   @@map("quotes")
-}
-
-// 报价状态枚举
-enum QuoteStatus {
-  PENDING   // 待确认
-  ACCEPTED  // 已接受
-  REJECTED  // 已拒绝
-  EXPIRED   // 已过期
 }
 
 // 订单表
@@ -103,40 +90,21 @@ model Order {
   requestId     String
   quoteId       String
   orderNumber   String      @unique
-  totalAmount   Decimal     @db.Decimal(10, 2)
-  paymentStatus PaymentStatus @default(PENDING)
-  orderStatus   OrderStatus @default(PENDING)
+  totalAmount   Float
+  paymentStatus String @default("PENDING")
+  orderStatus   String @default("PENDING")
   paymentId     String?
   createdAt     DateTime    @default(now())
   updatedAt     DateTime    @updatedAt
 
   // 关联关系
-  user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  request  Request   @relation(fields: [requestId], references: [id], onDelete: Cascade)
-  quote    Quote     @relation(fields: [quoteId], references: [id], onDelete: Cascade)
-  shipping Shipping?
+  user          User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  request       Request         @relation(fields: [requestId], references: [id], onDelete: Cascade)
+  quote         Quote           @relation(fields: [quoteId], references: [id], onDelete: Cascade)
+  shipping      Shipping?
+  shipmentItems ShipmentItem[]
 
   @@map("orders")
-}
-
-// 支付状态枚举
-enum PaymentStatus {
-  PENDING   // 待支付
-  PAID      // 已支付
-  FAILED    // 支付失败
-  REFUNDED  // 已退款
-}
-
-// 订单状态枚举
-enum OrderStatus {
-  PENDING     // 待处理
-  PAID        // 已支付
-  PURCHASING  // 采购中
-  PURCHASED   // 已采购
-  SHIPPING    // 发货中
-  DELIVERED   // 已送达
-  COMPLETED   // 已完成
-  CANCELLED   // 已取消
 }
 
 // 物流表
@@ -145,10 +113,10 @@ model Shipping {
   orderId       String        @unique
   trackingNumber String?
   carrier       String?
-  status        ShippingStatus @default(PREPARING)
+  status        String @default("PREPARING")
   shippedAt     DateTime?
   deliveredAt   DateTime?
-  notes         String?       @db.Text
+  notes         String?
   createdAt     DateTime      @default(now())
   updatedAt     DateTime      @updatedAt
 
@@ -158,11 +126,88 @@ model Shipping {
   @@map("shipping")
 }
 
-// 物流状态枚举
-enum ShippingStatus {
-  PREPARING   // 准备中
-  SHIPPED     // 已发货
-  IN_TRANSIT  // 运输中
-  DELIVERED   // 已送达
-  EXCEPTION   // 异常
+// 请求处理活动记录表
+model RequestActivity {
+  id        String   @id @default(cuid())
+  requestId String
+  userId    String   // 执行操作的用户ID
+  type      String   // 活动类型: STATUS_CHANGE, NOTE_ADDED, ASSIGNED, QUOTE_CREATED 等
+  title     String   // 活动标题
+  content   String?  // 活动内容/描述
+  metadata  String?  // 额外数据，JSON格式
+  createdAt DateTime @default(now())
+
+  // 关联关系
+  request Request @relation(fields: [requestId], references: [id], onDelete: Cascade)
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("request_activities")
 }
+
+// 发货包裹表
+model Shipment {
+  id              String          @id @default(cuid())
+  userId          String          // 用户ID
+  shipmentNumber  String          @unique // 发货单号
+  totalWeight     Float?          // 总重量(kg)
+  totalVolume     Float?          // 总体积(cm³)
+  dimensions      String?         // 尺寸信息 JSON格式 {length, width, height}
+  shippingFee     Float           @default(0) // 运费
+  shippingMethod  String?         // 发货方式
+  carrier         String?         // 承运商
+  trackingNumber  String?         // 快递单号
+  status          String          @default("PREPARING") // PREPARING, SHIPPED, IN_TRANSIT, DELIVERED
+  shippedAt       DateTime?       // 发货时间
+  deliveredAt     DateTime?       // 签收时间
+  shippingAddress String          // 收货地址 JSON格式
+  notes           String?         // 发货备注
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  // 关联关系
+  user           User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  shipmentItems  ShipmentItem[]
+  shippingOrders ShippingOrder[]
+
+  @@map("shipments")
+}
+
+// 发货商品明细表
+model ShipmentItem {
+  id          String   @id @default(cuid())
+  shipmentId  String   // 发货包裹ID
+  quoteId     String   // 报价ID(对应商品)
+  orderId     String   // 订单ID
+  weight      Float?   // 商品重量(kg)
+  volume      Float?   // 商品体积(cm³)
+  dimensions  String?  // 商品尺寸 JSON格式
+  notes       String?  // 商品备注
+  createdAt   DateTime @default(now())
+
+  // 关联关系
+  shipment Shipment @relation(fields: [shipmentId], references: [id], onDelete: Cascade)
+  quote    Quote    @relation(fields: [quoteId], references: [id], onDelete: Cascade)
+  order    Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  @@map("shipment_items")
+}
+
+// 运费订单表
+model ShippingOrder {
+  id            String   @id @default(cuid())
+  userId        String   // 用户ID
+  shipmentId    String   // 发货包裹ID
+  orderNumber   String   @unique // 运费订单号
+  shippingFee   Float    // 运费金额
+  paymentStatus String   @default("PENDING") // PENDING, PAID, FAILED, REFUNDED
+  paymentId     String?  // 支付单号
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  // 关联关系
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  shipment Shipment @relation(fields: [shipmentId], references: [id], onDelete: Cascade)
+
+  @@map("shipping_orders")
+}
+

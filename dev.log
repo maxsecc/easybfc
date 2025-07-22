@@ -1,0 +1,1069 @@
+
+> easybfc@0.1.0 dev
+> next dev
+
+   ▲ Next.js 14.0.4
+   - Local:        http://localhost:3000
+   - Environments: .env
+
+ ✓ Ready in 1360ms
+ ✓ Compiled /api/auth/login in 272ms (131 modules)
+ ✓ Compiled /api/requests in 97ms (157 modules)
+ ○ Compiling /dashboard/new-request ...
+ ✓ Compiled /dashboard/new-request in 1874ms (654 modules)
+ ✓ Compiled in 140ms (264 modules)
+ ✓ Compiled /not-found in 181ms (641 modules)
+ ⨯ TypeError: s is not a function
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:38:6390
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async t0 (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:38:5773)
+    at async rh (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:39:23636)
+    at async doRender (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1391:30)
+    at async cacheEntry.responseCache.get.routeKind (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1552:28)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1460:28)
+    at async DevServer.renderErrorToResponseImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:2101:24)
+    at async DevServer.pipeImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:909:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/next-server.js:266:17)
+    at async DevServer.handleRequestImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:805:17)
+ ✓ Compiled /_error in 420ms (800 modules)
+Token验证失败: JsonWebTokenError: invalid token
+    at module.exports [as verify] (webpack-internal:///(rsc)/./node_modules/jsonwebtoken/verify.js:82:21)
+    at verifyToken (webpack-internal:///(rsc)/./src/lib/auth.ts:29:77)
+    at getCurrentUser (webpack-internal:///(rsc)/./src/lib/auth.ts:40:31)
+    at requireAuth (webpack-internal:///(rsc)/./src/lib/auth.ts:77:24)
+    at POST (webpack-internal:///(rsc)/./src/app/api/requests/route.ts:83:82)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:63257
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:133:36
+    at NoopContextManager.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NoopTracer.startActiveSpan (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18093)
+    at ProxyTracer.startActiveSpan (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18854)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:122:103
+    at NoopContextManager.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NextTracerImpl.trace (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:122:28)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:56774
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at Object.wrap (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:37057)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:54547
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at Object.wrap (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:36306)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:54509
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at eH.execute (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:53902)
+    at eH.handle (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:64515)
+    at doRender (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1330:60)
+    at cacheEntry.responseCache.get.routeKind (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1552:34)
+    at ResponseCache.get (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/response-cache/index.js:49:26)
+    at DevServer.renderToResponseWithComponentsImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1460:53)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:990:121
+    at NextTracerImpl.trace (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:104:20)
+    at DevServer.renderToResponseWithComponents (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:990:41)
+    at DevServer.renderPageComponent (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1843:35)
+    at async DevServer.renderToResponseImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1881:32)
+    at async DevServer.pipeImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:909:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/next-server.js:266:17)
+    at async DevServer.handleRequestImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:805:17)
+Token验证失败: JsonWebTokenError: invalid token
+    at module.exports [as verify] (webpack-internal:///(rsc)/./node_modules/jsonwebtoken/verify.js:82:21)
+    at verifyToken (webpack-internal:///(rsc)/./src/lib/auth.ts:29:77)
+    at getCurrentUser (webpack-internal:///(rsc)/./src/lib/auth.ts:40:31)
+    at requireAuth (webpack-internal:///(rsc)/./src/lib/auth.ts:77:24)
+    at POST (webpack-internal:///(rsc)/./src/app/api/requests/route.ts:83:82)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:63257
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:133:36
+    at NoopContextManager.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NoopTracer.startActiveSpan (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18093)
+    at ProxyTracer.startActiveSpan (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18854)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:122:103
+    at NoopContextManager.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NextTracerImpl.trace (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:122:28)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:56774
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at Object.wrap (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:37057)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:54547
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at Object.wrap (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:36306)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:54509
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at eH.execute (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:53902)
+    at eH.handle (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:64515)
+    at doRender (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1330:60)
+    at cacheEntry.responseCache.get.routeKind (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1552:34)
+    at ResponseCache.get (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/response-cache/index.js:49:26)
+    at DevServer.renderToResponseWithComponentsImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1460:53)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:990:121
+    at NextTracerImpl.trace (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:104:20)
+    at DevServer.renderToResponseWithComponents (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:990:41)
+    at DevServer.renderPageComponent (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1843:35)
+    at async DevServer.renderToResponseImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1881:32)
+    at async DevServer.pipeImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:909:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/next-server.js:266:17)
+    at async DevServer.handleRequestImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:805:17)
+ ✓ Compiled /dashboard in 184ms (793 modules)
+Token验证失败: JsonWebTokenError: invalid token
+    at module.exports [as verify] (webpack-internal:///(rsc)/./node_modules/jsonwebtoken/verify.js:82:21)
+    at verifyToken (webpack-internal:///(rsc)/./src/lib/auth.ts:29:77)
+    at getCurrentUser (webpack-internal:///(rsc)/./src/lib/auth.ts:40:31)
+    at requireAuth (webpack-internal:///(rsc)/./src/lib/auth.ts:77:24)
+    at GET (webpack-internal:///(rsc)/./src/app/api/requests/route.ts:35:82)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:63257
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:133:36
+    at NoopContextManager.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NoopTracer.startActiveSpan (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18093)
+    at ProxyTracer.startActiveSpan (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18854)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:122:103
+    at NoopContextManager.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NextTracerImpl.trace (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:122:28)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:56774
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at Object.wrap (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:37057)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:54547
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at Object.wrap (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:36306)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:54509
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at eH.execute (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:53902)
+    at eH.handle (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:64515)
+    at doRender (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1330:60)
+    at cacheEntry.responseCache.get.routeKind (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1552:34)
+    at ResponseCache.get (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/response-cache/index.js:49:26)
+    at DevServer.renderToResponseWithComponentsImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1460:53)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:990:121
+    at NextTracerImpl.trace (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:104:20)
+    at DevServer.renderToResponseWithComponents (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:990:41)
+    at DevServer.renderPageComponent (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1843:35)
+    at async DevServer.renderToResponseImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1881:32)
+    at async DevServer.pipeImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:909:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/next-server.js:266:17)
+    at async DevServer.handleRequestImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:805:17)
+ ✓ Compiled /api/orders in 134ms (416 modules)
+Token验证失败: JsonWebTokenError: invalid token
+    at module.exports [as verify] (webpack-internal:///(rsc)/./node_modules/jsonwebtoken/verify.js:82:21)
+    at verifyToken (webpack-internal:///(rsc)/./src/lib/auth.ts:29:77)
+    at getCurrentUser (webpack-internal:///(rsc)/./src/lib/auth.ts:40:31)
+    at requireAuth (webpack-internal:///(rsc)/./src/lib/auth.ts:77:24)
+    at GET (webpack-internal:///(rsc)/./src/app/api/orders/route.ts:46:82)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:63257
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:133:36
+    at NoopContextManager.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NoopTracer.startActiveSpan (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18093)
+    at ProxyTracer.startActiveSpan (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18854)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:122:103
+    at NoopContextManager.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NextTracerImpl.trace (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:122:28)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:56774
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at Object.wrap (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:37057)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:54547
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at Object.wrap (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:36306)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:54509
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at eH.execute (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:53902)
+    at eH.handle (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:64515)
+    at doRender (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1330:60)
+    at cacheEntry.responseCache.get.routeKind (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1552:34)
+    at ResponseCache.get (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/response-cache/index.js:49:26)
+    at DevServer.renderToResponseWithComponentsImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1460:53)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:990:121
+    at NextTracerImpl.trace (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:104:20)
+    at DevServer.renderToResponseWithComponents (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:990:41)
+    at DevServer.renderPageComponent (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1843:35)
+    at async DevServer.renderToResponseImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1881:32)
+    at async DevServer.pipeImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:909:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/next-server.js:266:17)
+    at async DevServer.handleRequestImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:805:17)
+Token验证失败: JsonWebTokenError: invalid token
+    at module.exports [as verify] (webpack-internal:///(rsc)/./node_modules/jsonwebtoken/verify.js:82:21)
+    at verifyToken (webpack-internal:///(rsc)/./src/lib/auth.ts:29:77)
+    at getCurrentUser (webpack-internal:///(rsc)/./src/lib/auth.ts:40:31)
+    at requireAuth (webpack-internal:///(rsc)/./src/lib/auth.ts:77:24)
+    at GET (webpack-internal:///(rsc)/./src/app/api/requests/route.ts:35:82)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:63257
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:133:36
+    at NoopContextManager.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NoopTracer.startActiveSpan (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18093)
+    at ProxyTracer.startActiveSpan (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18854)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:122:103
+    at NoopContextManager.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NextTracerImpl.trace (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:122:28)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:56774
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at Object.wrap (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:37057)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:54547
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at Object.wrap (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:36306)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:54509
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at eH.execute (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:53902)
+    at eH.handle (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:64515)
+    at doRender (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1330:60)
+    at cacheEntry.responseCache.get.routeKind (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1552:34)
+    at ResponseCache.get (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/response-cache/index.js:49:26)
+    at DevServer.renderToResponseWithComponentsImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1460:53)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:990:121
+    at NextTracerImpl.trace (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:104:20)
+    at DevServer.renderToResponseWithComponents (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:990:41)
+    at DevServer.renderPageComponent (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1843:35)
+    at async DevServer.renderToResponseImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1881:32)
+    at async DevServer.pipeImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:909:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/next-server.js:266:17)
+    at async DevServer.handleRequestImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:805:17)
+Token验证失败: JsonWebTokenError: invalid token
+    at module.exports [as verify] (webpack-internal:///(rsc)/./node_modules/jsonwebtoken/verify.js:82:21)
+    at verifyToken (webpack-internal:///(rsc)/./src/lib/auth.ts:29:77)
+    at getCurrentUser (webpack-internal:///(rsc)/./src/lib/auth.ts:40:31)
+    at requireAuth (webpack-internal:///(rsc)/./src/lib/auth.ts:77:24)
+    at GET (webpack-internal:///(rsc)/./src/app/api/orders/route.ts:46:82)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:63257
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:133:36
+    at NoopContextManager.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NoopTracer.startActiveSpan (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18093)
+    at ProxyTracer.startActiveSpan (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18854)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:122:103
+    at NoopContextManager.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NextTracerImpl.trace (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:122:28)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:56774
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at Object.wrap (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:37057)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:54547
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at Object.wrap (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:36306)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:54509
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at eH.execute (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:53902)
+    at eH.handle (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:64515)
+    at doRender (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1330:60)
+    at cacheEntry.responseCache.get.routeKind (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1552:34)
+    at ResponseCache.get (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/response-cache/index.js:49:26)
+    at DevServer.renderToResponseWithComponentsImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1460:53)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:990:121
+    at NextTracerImpl.trace (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:104:20)
+    at DevServer.renderToResponseWithComponents (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:990:41)
+    at DevServer.renderPageComponent (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1843:35)
+    at async DevServer.renderToResponseImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1881:32)
+    at async DevServer.pipeImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:909:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/next-server.js:266:17)
+    at async DevServer.handleRequestImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:805:17)
+ ✓ Compiled / in 245ms (811 modules)
+ ✓ Compiled /auth/register in 172ms (834 modules)
+ ✓ Compiled /auth/login in 147ms (840 modules)
+ ✓ Compiled /api/auth/login in 63ms (456 modules)
+ ✓ Compiled /admin in 138ms (858 modules)
+ ✓ Compiled /api/admin/requests in 201ms (860 modules)
+Token验证失败: JsonWebTokenError: invalid token
+    at module.exports [as verify] (webpack-internal:///(rsc)/./node_modules/jsonwebtoken/verify.js:82:21)
+    at verifyToken (webpack-internal:///(rsc)/./src/lib/auth.ts:29:77)
+    at getCurrentUser (webpack-internal:///(rsc)/./src/lib/auth.ts:40:31)
+    at requireAdmin (webpack-internal:///(rsc)/./src/lib/auth.ts:68:24)
+    at GET (webpack-internal:///(rsc)/./src/app/api/admin/requests/route.ts:34:84)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:63257
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:133:36
+    at NoopContextManager.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NoopTracer.startActiveSpan (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18093)
+    at ProxyTracer.startActiveSpan (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18854)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:122:103
+    at NoopContextManager.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NextTracerImpl.trace (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:122:28)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:56774
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at Object.wrap (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:37057)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:54547
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at Object.wrap (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:36306)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:54509
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at eH.execute (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:53902)
+    at eH.handle (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:64515)
+    at doRender (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1330:60)
+    at cacheEntry.responseCache.get.routeKind (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1552:34)
+    at ResponseCache.get (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/response-cache/index.js:49:26)
+    at DevServer.renderToResponseWithComponentsImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1460:53)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:990:121
+    at NextTracerImpl.trace (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:104:20)
+    at DevServer.renderToResponseWithComponents (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:990:41)
+    at DevServer.renderPageComponent (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1843:35)
+    at async DevServer.renderToResponseImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1881:32)
+    at async DevServer.pipeImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:909:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/next-server.js:266:17)
+    at async DevServer.handleRequestImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:805:17)
+Token验证失败: JsonWebTokenError: invalid token
+    at module.exports [as verify] (webpack-internal:///(rsc)/./node_modules/jsonwebtoken/verify.js:82:21)
+    at verifyToken (webpack-internal:///(rsc)/./src/lib/auth.ts:29:77)
+    at getCurrentUser (webpack-internal:///(rsc)/./src/lib/auth.ts:40:31)
+    at requireAdmin (webpack-internal:///(rsc)/./src/lib/auth.ts:68:24)
+    at GET (webpack-internal:///(rsc)/./src/app/api/admin/requests/route.ts:34:84)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:63257
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:133:36
+    at NoopContextManager.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NoopTracer.startActiveSpan (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18093)
+    at ProxyTracer.startActiveSpan (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18854)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:122:103
+    at NoopContextManager.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NextTracerImpl.trace (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:122:28)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:56774
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at Object.wrap (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:37057)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:54547
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at Object.wrap (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:36306)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:54509
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at eH.execute (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:53902)
+    at eH.handle (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:64515)
+    at doRender (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1330:60)
+    at cacheEntry.responseCache.get.routeKind (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1552:34)
+    at ResponseCache.get (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/response-cache/index.js:49:26)
+    at DevServer.renderToResponseWithComponentsImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1460:53)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:990:121
+    at NextTracerImpl.trace (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:104:20)
+    at DevServer.renderToResponseWithComponents (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:990:41)
+    at DevServer.renderPageComponent (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1843:35)
+    at async DevServer.renderToResponseImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1881:32)
+    at async DevServer.pipeImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:909:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/next-server.js:266:17)
+    at async DevServer.handleRequestImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:805:17)
+Token验证失败: JsonWebTokenError: invalid token
+    at module.exports [as verify] (webpack-internal:///(rsc)/./node_modules/jsonwebtoken/verify.js:82:21)
+    at verifyToken (webpack-internal:///(rsc)/./src/lib/auth.ts:29:77)
+    at getCurrentUser (webpack-internal:///(rsc)/./src/lib/auth.ts:40:31)
+    at requireAuth (webpack-internal:///(rsc)/./src/lib/auth.ts:77:24)
+    at GET (webpack-internal:///(rsc)/./src/app/api/requests/route.ts:35:82)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:63257
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:133:36
+    at NoopContextManager.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NoopTracer.startActiveSpan (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18093)
+    at ProxyTracer.startActiveSpan (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18854)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:122:103
+    at NoopContextManager.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NextTracerImpl.trace (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:122:28)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:56774
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at Object.wrap (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:37057)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:54547
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at Object.wrap (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:36306)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:54509
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at eH.execute (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:53902)
+    at eH.handle (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:64515)
+    at doRender (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1330:60)
+    at cacheEntry.responseCache.get.routeKind (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1552:34)
+    at ResponseCache.get (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/response-cache/index.js:49:26)
+    at DevServer.renderToResponseWithComponentsImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1460:53)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:990:121
+    at NextTracerImpl.trace (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:104:20)
+    at DevServer.renderToResponseWithComponents (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:990:41)
+    at DevServer.renderPageComponent (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1843:35)
+    at async DevServer.renderToResponseImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1881:32)
+    at async DevServer.pipeImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:909:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/next-server.js:266:17)
+    at async DevServer.handleRequestImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:805:17)
+Token验证失败: JsonWebTokenError: invalid token
+    at module.exports [as verify] (webpack-internal:///(rsc)/./node_modules/jsonwebtoken/verify.js:82:21)
+    at verifyToken (webpack-internal:///(rsc)/./src/lib/auth.ts:29:77)
+    at getCurrentUser (webpack-internal:///(rsc)/./src/lib/auth.ts:40:31)
+    at requireAuth (webpack-internal:///(rsc)/./src/lib/auth.ts:77:24)
+    at GET (webpack-internal:///(rsc)/./src/app/api/orders/route.ts:46:82)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:63257
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:133:36
+    at NoopContextManager.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NoopTracer.startActiveSpan (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18093)
+    at ProxyTracer.startActiveSpan (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18854)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:122:103
+    at NoopContextManager.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NextTracerImpl.trace (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:122:28)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:56774
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at Object.wrap (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:37057)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:54547
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at Object.wrap (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:36306)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:54509
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at eH.execute (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:53902)
+    at eH.handle (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:64515)
+    at doRender (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1330:60)
+    at cacheEntry.responseCache.get.routeKind (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1552:34)
+    at ResponseCache.get (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/response-cache/index.js:49:26)
+    at DevServer.renderToResponseWithComponentsImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1460:53)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:990:121
+    at NextTracerImpl.trace (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:104:20)
+    at DevServer.renderToResponseWithComponents (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:990:41)
+    at DevServer.renderPageComponent (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1843:35)
+    at async DevServer.renderToResponseImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1881:32)
+    at async DevServer.pipeImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:909:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/next-server.js:266:17)
+    at async DevServer.handleRequestImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:805:17)
+Token验证失败: JsonWebTokenError: invalid token
+    at module.exports [as verify] (webpack-internal:///(rsc)/./node_modules/jsonwebtoken/verify.js:82:21)
+    at verifyToken (webpack-internal:///(rsc)/./src/lib/auth.ts:29:77)
+    at getCurrentUser (webpack-internal:///(rsc)/./src/lib/auth.ts:40:31)
+    at requireAuth (webpack-internal:///(rsc)/./src/lib/auth.ts:77:24)
+    at GET (webpack-internal:///(rsc)/./src/app/api/requests/route.ts:35:82)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:63257
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:133:36
+    at NoopContextManager.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NoopTracer.startActiveSpan (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18093)
+    at ProxyTracer.startActiveSpan (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18854)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:122:103
+    at NoopContextManager.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NextTracerImpl.trace (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:122:28)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:56774
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at Object.wrap (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:37057)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:54547
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at Object.wrap (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:36306)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:54509
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at eH.execute (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:53902)
+    at eH.handle (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:64515)
+    at doRender (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1330:60)
+    at cacheEntry.responseCache.get.routeKind (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1552:34)
+    at ResponseCache.get (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/response-cache/index.js:49:26)
+    at DevServer.renderToResponseWithComponentsImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1460:53)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:990:121
+    at NextTracerImpl.trace (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:104:20)
+    at DevServer.renderToResponseWithComponents (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:990:41)
+    at DevServer.renderPageComponent (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1843:35)
+    at async DevServer.renderToResponseImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1881:32)
+    at async DevServer.pipeImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:909:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/next-server.js:266:17)
+    at async DevServer.handleRequestImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:805:17)
+Token验证失败: JsonWebTokenError: invalid token
+    at module.exports [as verify] (webpack-internal:///(rsc)/./node_modules/jsonwebtoken/verify.js:82:21)
+    at verifyToken (webpack-internal:///(rsc)/./src/lib/auth.ts:29:77)
+    at getCurrentUser (webpack-internal:///(rsc)/./src/lib/auth.ts:40:31)
+    at requireAuth (webpack-internal:///(rsc)/./src/lib/auth.ts:77:24)
+    at GET (webpack-internal:///(rsc)/./src/app/api/orders/route.ts:46:82)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:63257
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:133:36
+    at NoopContextManager.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NoopTracer.startActiveSpan (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18093)
+    at ProxyTracer.startActiveSpan (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18854)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:122:103
+    at NoopContextManager.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NextTracerImpl.trace (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:122:28)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:56774
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at Object.wrap (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:37057)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:54547
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at Object.wrap (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:36306)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:54509
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at eH.execute (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:53902)
+    at eH.handle (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:64515)
+    at doRender (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1330:60)
+    at cacheEntry.responseCache.get.routeKind (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1552:34)
+    at ResponseCache.get (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/response-cache/index.js:49:26)
+    at DevServer.renderToResponseWithComponentsImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1460:53)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:990:121
+    at NextTracerImpl.trace (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:104:20)
+    at DevServer.renderToResponseWithComponents (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:990:41)
+    at DevServer.renderPageComponent (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1843:35)
+    at async DevServer.renderToResponseImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1881:32)
+    at async DevServer.pipeImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:909:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/next-server.js:266:17)
+    at async DevServer.handleRequestImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:805:17)
+ ✓ Compiled /dashboard/new-request in 70ms (473 modules)
+Token验证失败: JsonWebTokenError: invalid token
+    at module.exports [as verify] (webpack-internal:///(rsc)/./node_modules/jsonwebtoken/verify.js:82:21)
+    at verifyToken (webpack-internal:///(rsc)/./src/lib/auth.ts:29:77)
+    at getCurrentUser (webpack-internal:///(rsc)/./src/lib/auth.ts:40:31)
+    at requireAuth (webpack-internal:///(rsc)/./src/lib/auth.ts:77:24)
+    at POST (webpack-internal:///(rsc)/./src/app/api/requests/route.ts:83:82)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:63257
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:133:36
+    at NoopContextManager.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NoopTracer.startActiveSpan (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18093)
+    at ProxyTracer.startActiveSpan (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18854)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:122:103
+    at NoopContextManager.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NextTracerImpl.trace (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:122:28)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:56774
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at Object.wrap (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:37057)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:54547
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at Object.wrap (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:36306)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:54509
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_context_frame:63:14)
+    at eH.execute (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:53902)
+    at eH.handle (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:64515)
+    at doRender (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1330:60)
+    at cacheEntry.responseCache.get.routeKind (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1552:34)
+    at ResponseCache.get (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/response-cache/index.js:49:26)
+    at DevServer.renderToResponseWithComponentsImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1460:53)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:990:121
+    at NextTracerImpl.trace (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/trace/tracer.js:104:20)
+    at DevServer.renderToResponseWithComponents (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:990:41)
+    at DevServer.renderPageComponent (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1843:35)
+    at async DevServer.renderToResponseImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1881:32)
+    at async DevServer.pipeImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:909:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/next-server.js:266:17)
+    at async DevServer.handleRequestImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:805:17)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat '/Users/mazi/Documents/GitHub/easybfc/.next/server/vendor-chunks/uuid.js'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/uuid' in /Users/mazi/Documents/GitHub/easybfc/.next/server for build dependencies doesn't lead to expected result '/Users/mazi/Documents/GitHub/easybfc/.next/server/vendor-chunks/uuid.js', but to 'Error: Can't resolve './vendor-chunks/uuid' in '/Users/mazi/Documents/GitHub/easybfc/.next/server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/uuid (expected /Users/mazi/Documents/GitHub/easybfc/.next/server/vendor-chunks/uuid.js)
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/.next/server/webpack-runtime.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/.next/server/webpack-runtime.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/.next/server/app/api/requests/route.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/.next/server/app/api/requests/route.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/require.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/require.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-components.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-components.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/utils.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/utils.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/worker.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/worker.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/webpack/bundle5.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/webpack/bundle5.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/webpack/webpack.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/compiled/webpack/webpack.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/webpack/plugins/define-env-plugin.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/webpack/plugins/define-env-plugin.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/swc/index.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/swc/index.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/webpack/loaders/next-barrel-loader.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/webpack/loaders/next-barrel-loader.js
+<w>  at resolve commonjs /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/webpack/loaders/next-barrel-loader.js
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat '/Users/mazi/Documents/GitHub/easybfc/.next/server/vendor-chunks/uuid.js'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/uuid' in /Users/mazi/Documents/GitHub/easybfc/.next/server for build dependencies doesn't lead to expected result '/Users/mazi/Documents/GitHub/easybfc/.next/server/vendor-chunks/uuid.js', but to 'Error: Can't resolve './vendor-chunks/uuid' in '/Users/mazi/Documents/GitHub/easybfc/.next/server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/uuid (expected /Users/mazi/Documents/GitHub/easybfc/.next/server/vendor-chunks/uuid.js)
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/.next/server/webpack-runtime.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/.next/server/webpack-runtime.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/.next/server/app/dashboard/new-request/page.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/.next/server/app/dashboard/new-request/page.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/require.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/require.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-components.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-components.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/utils.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/utils.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/worker.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/worker.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w>  at resolve commonjs /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/buffer-equal-constant-time' in /Users/mazi/Documents/GitHub/easybfc/.next/server for build dependencies doesn't lead to expected result '/Users/mazi/Documents/GitHub/easybfc/.next/server/vendor-chunks/buffer-equal-constant-time.js', but to 'Error: Can't resolve './vendor-chunks/buffer-equal-constant-time' in '/Users/mazi/Documents/GitHub/easybfc/.next/server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/buffer-equal-constant-time (expected /Users/mazi/Documents/GitHub/easybfc/.next/server/vendor-chunks/buffer-equal-constant-time.js)
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/.next/server/webpack-runtime.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/.next/server/webpack-runtime.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/.next/server/app/dashboard/new-request/page.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/.next/server/app/dashboard/new-request/page.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/require.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/require.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-components.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-components.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/utils.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/utils.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/worker.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/worker.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w>  at resolve commonjs /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/safe-buffer' in /Users/mazi/Documents/GitHub/easybfc/.next/server for build dependencies doesn't lead to expected result '/Users/mazi/Documents/GitHub/easybfc/.next/server/vendor-chunks/safe-buffer.js', but to 'Error: Can't resolve './vendor-chunks/safe-buffer' in '/Users/mazi/Documents/GitHub/easybfc/.next/server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/safe-buffer (expected /Users/mazi/Documents/GitHub/easybfc/.next/server/vendor-chunks/safe-buffer.js)
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/.next/server/webpack-runtime.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/.next/server/webpack-runtime.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/.next/server/app/dashboard/new-request/page.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/.next/server/app/dashboard/new-request/page.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/require.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/require.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-components.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-components.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/utils.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/utils.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/worker.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/worker.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w>  at resolve commonjs /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/lodash.isboolean' in /Users/mazi/Documents/GitHub/easybfc/.next/server for build dependencies doesn't lead to expected result '/Users/mazi/Documents/GitHub/easybfc/.next/server/vendor-chunks/lodash.isboolean.js', but to 'Error: Can't resolve './vendor-chunks/lodash.isboolean' in '/Users/mazi/Documents/GitHub/easybfc/.next/server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/lodash.isboolean (expected /Users/mazi/Documents/GitHub/easybfc/.next/server/vendor-chunks/lodash.isboolean.js)
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/.next/server/webpack-runtime.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/.next/server/webpack-runtime.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/.next/server/app/dashboard/new-request/page.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/.next/server/app/dashboard/new-request/page.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/require.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/require.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-components.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-components.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/utils.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/utils.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/worker.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/worker.js
+<w>  at file dependencies /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w>  at file /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w>  at resolve commonjs /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+ ⨯ ./src/app/globals.css:1:1
+Syntax error: /Users/mazi/Documents/GitHub/easybfc/src/app/globals.css The `border-border` class does not exist. If `border-border` is a custom class, make sure it is defined within a `@layer` directive.
+
+> 1 | @tailwind base;
+    | ^
+  2 | @tailwind components;
+  3 | @tailwind utilities;
+ ✓ Compiled in 383ms (451 modules)
+ ✓ Compiled in 66ms (405 modules)
+ ✓ Compiled in 182ms (437 modules)
+ ✓ Compiled in 94ms (406 modules)
+ ✓ Compiled in 119ms (411 modules)
+ ✓ Compiled in 83ms (411 modules)
+ ✓ Compiled in 80ms (411 modules)
+ ✓ Compiled in 79ms (411 modules)
+ ✓ Compiled in 60ms (411 modules)
+ ✓ Compiled in 64ms (411 modules)
+ ✓ Compiled in 73ms (411 modules)
+ ✓ Compiled in 109ms (416 modules)
+ ✓ Compiled in 95ms (416 modules)
+ ✓ Compiled in 60ms (416 modules)
+ ✓ Compiled in 91ms (416 modules)
+ ✓ Compiled in 65ms (416 modules)
+ ✓ Compiled in 81ms (416 modules)
+ ⨯ ./src/app/dashboard/new-request/page.tsx
+Error: 
+  [31mx[0m Unexpected token `div`. Expected jsx identifier
+     ,-[[36;1;4m/Users/mazi/Documents/GitHub/easybfc/src/app/dashboard/new-request/page.tsx[0m:133:1]
+ [2m133[0m |   }
+ [2m134[0m | 
+ [2m135[0m |   return (
+ [2m136[0m |     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+     : [31;1m     ^^^[0m
+ [2m137[0m |       {/* Header */}
+ [2m138[0m |       <header className="bg-white/80 backdrop-blur-sm border-b sticky top-0 z-10">
+ [2m139[0m |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/dashboard/new-request/page.tsx
+ ⨯ ./src/app/dashboard/new-request/page.tsx
+Error: 
+  [31mx[0m Unexpected token `div`. Expected jsx identifier
+     ,-[[36;1;4m/Users/mazi/Documents/GitHub/easybfc/src/app/dashboard/new-request/page.tsx[0m:133:1]
+ [2m133[0m |   }
+ [2m134[0m | 
+ [2m135[0m |   return (
+ [2m136[0m |     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+     : [31;1m     ^^^[0m
+ [2m137[0m |       {/* Header */}
+ [2m138[0m |       <header className="bg-white/80 backdrop-blur-sm border-b sticky top-0 z-10">
+ [2m139[0m |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/dashboard/new-request/page.tsx
+ ⨯ ./src/app/dashboard/new-request/page.tsx
+Error: 
+  [31mx[0m Unexpected token `div`. Expected jsx identifier
+     ,-[[36;1;4m/Users/mazi/Documents/GitHub/easybfc/src/app/dashboard/new-request/page.tsx[0m:133:1]
+ [2m133[0m |   }
+ [2m134[0m | 
+ [2m135[0m |   return (
+ [2m136[0m |     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+     : [31;1m     ^^^[0m
+ [2m137[0m |       {/* Header */}
+ [2m138[0m |       <header className="bg-white/80 backdrop-blur-sm border-b sticky top-0 z-10">
+ [2m139[0m |         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/dashboard/new-request/page.tsx
+ ✓ Compiled in 158ms (419 modules)
+ ✓ Compiled / in 338ms (295 modules)
+ ✓ Compiled /dashboard/new-request in 416ms (302 modules)
+ ✓ Compiled /not-found in 270ms (712 modules)
+ ✓ Compiled /dashboard in 76ms (313 modules)
+ ✓ Compiled / in 67ms (335 modules)
+ ✓ Compiled /_error in 103ms (744 modules)
+ ⨯ Error: Cannot find module '/Users/mazi/Documents/GitHub/easybfc/.next/server/pages/_document.js'
+Require stack:
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/require.js
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-components.js
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/utils.js
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/dev/hot-middleware.js
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/dev/hot-reloader-webpack.js
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/router-server.js
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1369:15)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+    at Module._load (node:internal/modules/cjs/loader:1179:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1449:12)
+    at mod.require (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/require.js:109:84)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-components.js:55:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-components.js:54:33)
+    at async DevServer.findPageComponentsImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/next-server.js:671:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/require.js',
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-components.js',
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/utils.js',
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/dev/hot-middleware.js',
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/dev/hot-reloader-webpack.js',
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js',
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/router-server.js',
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/start-server.js'
+  ]
+}
+ ⨯ Error: ENOENT: no such file or directory, open '/Users/mazi/Documents/GitHub/easybfc/.next/fallback-build-manifest.json'
+    at readFileSync (node:fs:435:20)
+    at loadManifest (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-manifest.js:30:54)
+    at loadManifestWithRetries (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-components.js:34:51)
+    at async loadDefaultErrorComponentsImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-default-error-components.js:30:24)
+    at async DevServer.getFallbackErrorComponents (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/dev/next-dev-server.js:579:16)
+    at async DevServer.renderErrorToResponseImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:2122:40)
+    at async DevServer.pipeImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:909:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/next-server.js:266:17)
+    at async DevServer.handleRequestImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:805:17) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/mazi/Documents/GitHub/easybfc/.next/fallback-build-manifest.json'
+}
+ ⨯ Error: Cannot find module '/Users/mazi/Documents/GitHub/easybfc/.next/server/pages/_document.js'
+Require stack:
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/require.js
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-components.js
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/utils.js
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/dev/hot-middleware.js
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/dev/hot-reloader-webpack.js
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/router-server.js
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1369:15)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+    at Module._load (node:internal/modules/cjs/loader:1179:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1449:12)
+    at mod.require (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/require.js:109:84)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-components.js:55:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-components.js:54:33)
+    at async DevServer.findPageComponentsImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/next-server.js:671:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/require.js',
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-components.js',
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/utils.js',
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/dev/hot-middleware.js',
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/dev/hot-reloader-webpack.js',
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js',
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/router-server.js',
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/start-server.js'
+  ]
+}
+Error: ENOENT: no such file or directory, open '/Users/mazi/Documents/GitHub/easybfc/.next/fallback-build-manifest.json'
+    at readFileSync (node:fs:435:20)
+    at loadManifest (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-manifest.js:30:54)
+    at loadManifestWithRetries (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-components.js:34:51)
+    at async loadDefaultErrorComponentsImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-default-error-components.js:30:24)
+    at async DevServer.getFallbackErrorComponents (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/dev/next-dev-server.js:579:16)
+    at async DevServer.renderErrorToResponseImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:2122:40)
+    at async DevServer.pipeImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:909:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/next-server.js:266:17)
+    at async DevServer.handleRequestImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:805:17) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/mazi/Documents/GitHub/easybfc/.next/fallback-build-manifest.json'
+}
+ ⨯ Error: Cannot find module '/Users/mazi/Documents/GitHub/easybfc/.next/server/pages/_document.js'
+Require stack:
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/require.js
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-components.js
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/utils.js
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/dev/hot-middleware.js
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/dev/hot-reloader-webpack.js
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/router-server.js
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1369:15)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+    at Module._load (node:internal/modules/cjs/loader:1179:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1449:12)
+    at mod.require (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/require.js:109:84)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-components.js:55:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-components.js:54:33)
+    at async DevServer.findPageComponentsImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/next-server.js:671:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/require.js',
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-components.js',
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/utils.js',
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/dev/hot-middleware.js',
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/dev/hot-reloader-webpack.js',
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js',
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/router-server.js',
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/start-server.js'
+  ]
+}
+Error: ENOENT: no such file or directory, open '/Users/mazi/Documents/GitHub/easybfc/.next/fallback-build-manifest.json'
+    at readFileSync (node:fs:435:20)
+    at loadManifest (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-manifest.js:30:54)
+    at loadManifestWithRetries (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-components.js:34:51)
+    at async loadDefaultErrorComponentsImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-default-error-components.js:30:24)
+    at async DevServer.getFallbackErrorComponents (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/dev/next-dev-server.js:579:16)
+    at async DevServer.renderErrorToResponseImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:2122:40)
+    at async pipe.req.req (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1975:30)
+    at async DevServer.pipeImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:909:25) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/mazi/Documents/GitHub/easybfc/.next/fallback-build-manifest.json'
+}
+ ⨯ Error: Cannot find module '/Users/mazi/Documents/GitHub/easybfc/.next/server/pages/_document.js'
+Require stack:
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/require.js
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-components.js
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/utils.js
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/dev/hot-middleware.js
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/dev/hot-reloader-webpack.js
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/router-server.js
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1369:15)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+    at Module._load (node:internal/modules/cjs/loader:1179:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1449:12)
+    at mod.require (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/require.js:109:84)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-components.js:55:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-components.js:54:33)
+    at async DevServer.findPageComponentsImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/next-server.js:671:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/require.js',
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-components.js',
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/utils.js',
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/dev/hot-middleware.js',
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/dev/hot-reloader-webpack.js',
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js',
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/router-server.js',
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/start-server.js'
+  ]
+}
+Error: ENOENT: no such file or directory, open '/Users/mazi/Documents/GitHub/easybfc/.next/fallback-build-manifest.json'
+    at readFileSync (node:fs:435:20)
+    at loadManifest (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-manifest.js:30:54)
+    at loadManifestWithRetries (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-components.js:34:51)
+    at async loadDefaultErrorComponentsImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-default-error-components.js:30:24)
+    at async DevServer.getFallbackErrorComponents (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/dev/next-dev-server.js:579:16)
+    at async DevServer.renderErrorToResponseImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:2122:40)
+    at async pipe.req.req (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1975:30)
+    at async DevServer.pipeImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:909:25) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/mazi/Documents/GitHub/easybfc/.next/fallback-build-manifest.json'
+}
+ ⨯ Error: Cannot find module '/Users/mazi/Documents/GitHub/easybfc/.next/server/pages/_document.js'
+Require stack:
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/require.js
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-components.js
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/utils.js
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/dev/hot-middleware.js
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/dev/hot-reloader-webpack.js
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/router-server.js
+- /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1369:15)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+    at Module._load (node:internal/modules/cjs/loader:1179:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1449:12)
+    at mod.require (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/require.js:109:84)
+    at /Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-components.js:55:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-components.js:54:33)
+    at async DevServer.findPageComponentsImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/next-server.js:671:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/require.js',
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-components.js',
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/build/utils.js',
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/dev/hot-middleware.js',
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/dev/hot-reloader-webpack.js',
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js',
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/router-server.js',
+    '/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/lib/start-server.js'
+  ]
+}
+Error: ENOENT: no such file or directory, open '/Users/mazi/Documents/GitHub/easybfc/.next/fallback-build-manifest.json'
+    at readFileSync (node:fs:435:20)
+    at loadManifest (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-manifest.js:30:54)
+    at loadManifestWithRetries (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-components.js:34:51)
+    at async loadDefaultErrorComponentsImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/load-default-error-components.js:30:24)
+    at async DevServer.getFallbackErrorComponents (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/dev/next-dev-server.js:579:16)
+    at async DevServer.renderErrorToResponseImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:2122:40)
+    at async pipe.req.req (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:1975:30)
+    at async DevServer.pipeImpl (/Users/mazi/Documents/GitHub/easybfc/node_modules/next/dist/server/base-server.js:909:25) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/mazi/Documents/GitHub/easybfc/.next/fallback-build-manifest.json'
+}
+ ✓ Compiled in 597ms (419 modules)
+ ✓ Compiled in 247ms (419 modules)
+ ✓ Compiled in 100ms (419 modules)
+ ✓ Compiled in 148ms (419 modules)
+ ✓ Compiled in 90ms (419 modules)
+ ✓ Compiled in 85ms (419 modules)
+ ✓ Compiled in 94ms (419 modules)
+ ⨯ ./src/app/admin/page.tsx
+Error: 
+  [31mx[0m the name `logout` is defined multiple times
+     ,-[[36;1;4m/Users/mazi/Documents/GitHub/easybfc/src/app/admin/page.tsx[0m:54:1]
+ [2m 54[0m | 
+ [2m 55[0m | export default function AdminPage() {
+ [2m 56[0m |   const router = useRouter()
+ [2m 57[0m |   const { user, isLoading, logout } = useAuth()
+     : [31;1m                           ^^^|^^[0m
+     :                               [31;1m`-- [31;1mprevious definition of `logout` here[0m[0m
+ [2m 58[0m |   const [requests, setRequests] = useState<Request[]>([])
+ [2m 59[0m |   const [orders, setOrders] = useState<Order[]>([])
+ [2m 60[0m |   const [loading, setLoading] = useState(true)
+ [2m 61[0m |   const [activeTab, setActiveTab] = useState('requests')
+ [2m 62[0m |   const [statusFilter, setStatusFilter] = useState('ALL')
+ [2m 63[0m | 
+ [2m 64[0m |   useEffect(() => {
+ [2m 65[0m |     checkAuth()
+ [2m 66[0m |     fetchData()
+ [2m 67[0m |   }, [user, isLoading])
+ [2m 68[0m | 
+ [2m 69[0m |   const checkAuth = async () => {
+ [2m 70[0m |     if (isLoading) return
+ [2m 71[0m |     
+ [2m 72[0m |     if (!user) {
+ [2m 73[0m |       router.push('/auth/login')
+ [2m 74[0m |       return
+ [2m 75[0m |     }
+ [2m 76[0m |     
+ [2m 77[0m |     if (user.role !== 'ADMIN') {
+ [2m 78[0m |       router.push('/dashboard')
+ [2m 79[0m |       return
+ [2m 80[0m |     }
+ [2m 81[0m |   }
+ [2m 82[0m | 
+ [2m 83[0m |   const fetchData = async () => {
+ [2m 84[0m |     try {
+ [2m 85[0m |       const token = storage.get('token')
+ [2m 86[0m |       if (!token) return
+ [2m 87[0m | 
+ [2m 88[0m |       // 获取所有需求
+ [2m 89[0m |       const requestsResponse = await fetch('/api/admin/requests', {
+ [2m 90[0m |         headers: {
+ [2m 91[0m |           'Authorization': `Bearer ${token}`,
+ [2m 92[0m |         },
+ [2m 93[0m |       })
+ [2m 94[0m |       if (requestsResponse.ok) {
+ [2m 95[0m |         const requestsData = await requestsResponse.json()
+ [2m 96[0m |         setRequests(requestsData)
+ [2m 97[0m |       }
+ [2m 98[0m | 
+ [2m 99[0m |       // 获取所有订单
+ [2m100[0m |       const ordersResponse = await fetch('/api/admin/orders', {
+ [2m101[0m |         headers: {
+ [2m102[0m |           'Authorization': `Bearer ${token}`,
+ [2m103[0m |         },
+ [2m104[0m |       })
+ [2m105[0m |       if (ordersResponse.ok) {
+ [2m106[0m |         const ordersData = await ordersResponse.json()
+ [2m107[0m |         setOrders(ordersData)
+ [2m108[0m |       }
+ [2m109[0m |     } catch (error) {
+ [2m110[0m |       console.error('获取数据失败:', error)
+ [2m111[0m |       toast.error('获取数据失败')
+ [2m112[0m |     } finally {
+ [2m113[0m |       setLoading(false)
+ [2m114[0m |     }
+ [2m115[0m |   }
+ [2m116[0m | 
+ [2m117[0m |   const { logout } = useAuth()
+     : [33;1m          ^^^|^^[0m
+     :              [33;1m`-- [33;1m`logout` redefined here[0m[0m
+ [2m118[0m |   
+ [2m119[0m |   const handleLogout = () => {
+ [2m120[0m |     logout()
+     `----
+
+Import trace for requested module:
+./src/app/admin/page.tsx
+ ✓ Compiled in 103ms (419 modules)
+ ✓ Compiled in 88ms (419 modules)
+ ✓ Compiled in 128ms (419 modules)
+ ✓ Compiled in 124ms (419 modules)
+ ✓ Compiled in 185ms (419 modules)
+ ✓ Compiled in 376ms (465 modules)
+ ✓ Compiled / in 71ms (295 modules)
+[?25h

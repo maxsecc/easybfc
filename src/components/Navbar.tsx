@@ -5,22 +5,13 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/utils'
 import { Button } from '@/components/ui/Button'
-import { storage } from '@/utils'
-import { User } from '@/types'
+import { useAuth } from '@/contexts/AuthContext'
 
 export function Navbar() {
   const pathname = usePathname()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [user, setUser] = useState<User | null>(null)
   const [isScrolled, setIsScrolled] = useState(false)
-
-  // 检查用户登录状态
-  useEffect(() => {
-    const storedUser = storage.get('user')
-    if (storedUser) {
-      setUser(storedUser)
-    }
-  }, [])
+  const { user, logout } = useAuth()
 
   // 监听滚动事件，用于导航栏样式变化
   useEffect(() => {
@@ -33,10 +24,7 @@ export function Navbar() {
 
   // 处理登出
   const handleLogout = () => {
-    storage.remove('token')
-    storage.remove('user')
-    setUser(null)
-    window.location.href = '/'
+    logout()
   }
 
   // 导航链接

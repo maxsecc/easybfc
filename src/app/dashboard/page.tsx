@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { PlusIcon, ClockIcon, CheckCircleIcon, XCircleIcon } from '@heroicons/react/24/outline'
 import { toast } from 'react-hot-toast'
+import { storage } from '@/utils'
 
 interface Request {
   id: string
@@ -18,7 +19,7 @@ interface Request {
 interface Quote {
   id: string
   productName: string
-  totalAmount: number
+  totalPrice: number
   status: string
   validUntil: string
 }
@@ -46,7 +47,7 @@ export default function DashboardPage() {
   }, [])
 
   const checkAuth = () => {
-    const token = localStorage.getItem('token')
+    const token = storage.get('token')
     if (!token) {
       router.push('/auth/login')
       return
@@ -56,7 +57,7 @@ export default function DashboardPage() {
 
   const fetchData = async () => {
     try {
-      const token = localStorage.getItem('token')
+      const token = storage.get('token')
       if (!token) return
 
       // 获取用户信息
@@ -78,7 +79,7 @@ export default function DashboardPage() {
       })
       if (requestsResponse.ok) {
         const requestsData = await requestsResponse.json()
-        setRequests(requestsData)
+        setRequests(requestsData.requests || [])
       }
 
       // 获取订单列表
@@ -89,7 +90,7 @@ export default function DashboardPage() {
       })
       if (ordersResponse.ok) {
         const ordersData = await ordersResponse.json()
-        setOrders(ordersData)
+        setOrders(Array.isArray(ordersData) ? ordersData : [])
       }
     } catch (error) {
       console.error('获取数据失败:', error)
@@ -165,6 +166,10 @@ export default function DashboardPage() {
                 <PlusIcon className="w-5 h-5 mr-2" />
                 提交新需求
               </Link>
+              <Link href="/dashboard/shipments" className="btn btn-secondary flex items-center">
+                <ClockIcon className="w-5 h-5 mr-2" />
+                发货管理
+              </Link>
             </div>
           </div>
         </div>
@@ -235,7 +240,7 @@ export default function DashboardPage() {
                           </div>
                           <div className="text-right">
                             <span className="text-lg font-semibold text-primary-600">
-                              ¥{quote.totalAmount}
+                              ¥{quote.totalPrice}
                             </span>
                             {quote.status === 'PENDING' && (
                               <div className="mt-1">

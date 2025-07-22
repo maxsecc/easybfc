@@ -7,11 +7,13 @@ const prisma = new PrismaClient()
 
 // 创建报价验证模式
 const createQuoteSchema = z.object({
-  requestId: z.string().uuid('无效的请求ID'),
+  requestId: z.string().min(1, '请求ID不能为空'),
+  productName: z.string().min(1, '商品名称不能为空').max(200, '商品名称不能超过200字符'),
   productPrice: z.number().positive('商品价格必须大于0'),
+  quantity: z.number().int().positive('数量必须是正整数'),
   serviceFee: z.number().min(0, '服务费不能为负数'),
-  shippingFee: z.number().min(0, '运费不能为负数'),
   notes: z.string().max(1000, '备注不能超过1000个字符').optional(),
+  validUntil: z.string().min(1, '有效期不能为空'),
 })
 
 // GET - 获取报价列表
@@ -96,7 +98,7 @@ export async function POST(request: NextRequest) {
 
     const body = await request.json()
     const validatedData = createQuoteSchema.parse(body)
-    const { requestId, productPrice, serviceFee, shippingFee, notes } = validatedData
+    const { requestId, productName, productPrice, quantity, serviceFee, notes, validUntil } = validatedData
 
     // 检查请求是否存在
     const requestRecord = await prisma.request.findUnique({
@@ -119,18 +121,20 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // 计算总价
-    const totalPrice = productPrice + serviceFee + shippingFee
+    // 计算总价（只包含商品价格和服务费）
+    const totalPrice = (productPrice * quantity) + serviceFee
 
     // 创建报价
     const quote = await prisma.quote.create({
       data: {
         requestId,
+        productName,
         productPrice,
+        quantity,
         serviceFee,
-        shippingFee,
         totalPrice,
         notes: notes || '',
+        validUntil: new Date(validUntil),
         status: 'PENDING',
       },
       include: {

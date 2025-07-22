@@ -1,10 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
   images: {
-    domains: ['localhost', 'your-domain.com'],
+    domains: ['localhost', '127.0.0.1'],
   },
   env: {
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,

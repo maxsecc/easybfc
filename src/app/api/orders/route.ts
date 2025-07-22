@@ -46,11 +46,7 @@ export async function GET(request: NextRequest) {
     const where: any = {}
     if (!isAdmin) {
       // 普通用户只能查看自己的订单
-      where.quote = {
-        request: {
-          userId: user.id,
-        },
-      }
+      where.userId = user.id
     }
 
     const status = searchParams.get('status')
